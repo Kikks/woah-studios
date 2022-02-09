@@ -19,7 +19,12 @@ const Pillars = () => {
 			<div className='container'>
 				<div className='pillars__container'>
 					<figure className='pillars__image-container' data-aos='flip-down'>
-						<img src='/pillars-image.jpeg' alt='' className='pillars__image' />
+						<img
+							src='/pillars-image.jpg'
+							alt=''
+							className='pillars__image'
+							loading='lazy'
+						/>
 					</figure>
 
 					<div className='pillars__content'>
