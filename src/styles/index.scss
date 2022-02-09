@@ -1,0 +1,552 @@
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+:root {
+	--container-width: 1200px;
+}
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 100%;
+	min-height: 100vh;
+	font-size: 1.6rem;
+	color: #000;
+	font-family: "Gordita", sans-serif;
+	line-height: 190%;
+	overflow-x: hidden;
+
+	@media screen and (max-width: 1024px) {
+		font-size: 1.45rem;
+	}
+}
+
+.main {
+	overflow-x: hidden;
+}
+
+.bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	background-image: url("../../public/background.jpeg");
+	background-size: cover;
+	z-index: -1;
+}
+
+// Typography
+.heading {
+	&--1,
+	&--2,
+	&--3,
+	&--4 {
+		line-height: 120%;
+	}
+
+	&--1 {
+		font-family: "TT Norms Pro", sans-serif;
+		font-size: 8.6rem;
+
+		@media screen and (max-width: 1024px) {
+			font-size: 6.5rem;
+		}
+
+		@media screen and (max-width: 800px) {
+			font-size: 5.5rem;
+		}
+
+		@media screen and (max-width: 600px) {
+			font-size: 4rem;
+			line-height: 150%;
+		}
+
+		@media screen and (max-width: 800px) {
+			font-size: 3.2rem;
+		}
+	}
+
+	&--2 {
+		font-family: "TT Norms Pro", sans-serif;
+		font-size: 4.5rem;
+
+		@media screen and (max-width: 1024px) {
+			font-size: 3rem;
+		}
+	}
+
+	&--3 {
+		font-size: 3.6rem;
+		font-weight: 300;
+
+		@media screen and (max-width: 1024px) {
+			font-size: 2.8rem;
+		}
+	}
+
+	&--4 {
+		font-size: 2.4rem;
+
+		@media screen and (max-width: 1024px) {
+			font-size: 1.8rem;
+		}
+	}
+}
+
+@mixin flex-center {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	@include flex-center();
+	max-width: var(--container-width);
+
+	@media screen and (max-width: 1230px) {
+		padding: 0 3rem;
+	}
+
+	@media screen and (max-width: 450px) {
+		padding: 0 2rem;
+	}
+}
+
+// Nav
+.nav {
+	@include flex-center();
+	margin-top: 5rem;
+	color: #fff;
+
+	@media screen and (max-width: 1230px) {
+		margin-top: 3rem;
+	}
+
+	&__container {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.logo {
+		font-size: 1.8rem;
+		font-weight: bold;
+	}
+
+	&__links {
+		display: flex;
+
+		@media screen and (max-width: 600px) {
+			display: none;
+		}
+	}
+
+	&__link {
+		margin-left: 4rem;
+		color: inherit;
+		text-decoration: none;
+		font-size: 1.5rem;
+		font-weight: 400;
+		position: relative;
+
+		&:visited {
+			color: inherit;
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: -5%;
+			right: 0;
+			width: 0;
+			height: 0.2rem;
+			background-color: #fff;
+			transition: all 0.2s ease-in-out;
+			transform-origin: right;
+		}
+
+		&:hover {
+			&::before {
+				width: 100%;
+			}
+		}
+	}
+}
+
+// Header
+.header {
+	@include flex-center();
+
+	&__container {
+		width: 100%;
+		height: 100%;
+		height: 85vh;
+		min-height: 50rem;
+		max-height: 80rem;
+		display: grid;
+		justify-items: center;
+		align-content: center;
+		gap: 3rem;
+	}
+
+	@media screen and (max-width: 1230px) {
+		margin-top: 3rem;
+	}
+
+	&__heading {
+		color: #fff;
+		text-align: center;
+		margin-top: -3rem;
+		max-width: 110rem;
+	}
+}
+
+// Paper
+.paper {
+	background-color: #fff;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+// Vision
+.vision {
+	margin-top: -10%;
+	width: 70vw;
+	max-width: 90rem;
+	background-color: #fff;
+	border: #000 solid 0.1rem;
+	box-shadow: 1.2rem 1.2rem 1.2rem rgba($color: #717171, $alpha: 0.25);
+	display: grid;
+	gap: 3rem;
+	padding: 5rem;
+	grid-template-columns: repeat(2, 1fr);
+
+	@media screen and (max-width: 1024px) {
+		grid-template-columns: 1fr;
+		justify-items: center;
+		text-align: center;
+	}
+
+	@media screen and (min-width: 1500px) {
+		margin-top: -5%;
+	}
+
+	@media screen and (max-width: 600px) {
+		padding: 3rem;
+		margin-top: -20%;
+	}
+
+	&__heading {
+		max-width: 40rem;
+
+		@media screen and (max-width: 1024px) {
+			max-width: 60rem;
+		}
+	}
+
+	&__statement {
+		font-size: 1.8rem;
+		line-height: 220%;
+
+		@media screen and (max-width: 1024px) {
+			font-size: 1.6rem;
+		}
+	}
+}
+
+// Belief
+.belief {
+	@include flex-center();
+
+	&__container {
+		width: 100%;
+		padding-top: 15rem;
+		display: grid;
+		gap: 5rem;
+		justify-self: flex-start;
+	}
+
+	&__heading {
+		max-width: 65rem;
+
+		@media screen and (max-width: 800px) {
+			max-width: none;
+		}
+	}
+
+	&__paragraph {
+		max-width: 65rem;
+
+		@media screen and (max-width: 800px) {
+			max-width: none;
+		}
+	}
+}
+
+// Pillars
+.pillars {
+	margin-top: 8rem;
+	padding-top: 7rem;
+	@include flex-center();
+
+	&__container {
+		width: 100%;
+		height: 90vh;
+		max-height: 90rem;
+		display: grid;
+		grid-template-columns: 2fr 3fr;
+		align-items: center;
+		justify-content: space-between;
+		gap: 5rem;
+
+		@media screen and (max-width: 1024px) {
+			max-height: 60rem;
+		}
+
+		@media screen and (max-width: 800px) {
+			grid-template-columns: 1fr;
+			height: auto;
+			max-height: none;
+		}
+	}
+
+	&__image {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+
+		&-container {
+			height: 100%;
+			width: 100%;
+			overflow: hidden;
+
+			@media screen and (max-width: 800px) {
+				height: 20vh;
+				min-height: 30rem;
+			}
+
+			@media screen and (max-width: 450px) {
+				height: 20vh;
+				min-height: 20rem;
+			}
+		}
+	}
+
+	&__content {
+		display: grid;
+		gap: 7rem;
+		margin-left: 3rem;
+
+		@media screen and (max-width: 1024px) {
+			gap: 3rem;
+		}
+
+		@media screen and (max-width: 800px) {
+			margin-left: 0;
+			text-align: center;
+			gap: 7rem;
+		}
+	}
+
+	&__pillar {
+		display: grid;
+		gap: 2rem;
+
+		@media screen and (max-width: 1024px) {
+			gap: 1rem;
+		}
+
+		@media screen and (max-width: 800px) {
+			gap: 2rem;
+			width: 100%;
+			justify-items: center;
+		}
+
+		&__paragraph {
+			max-width: 55rem;
+		}
+	}
+}
+
+// Services
+.services {
+	margin-top: 4rem;
+	padding-top: 11rem;
+	padding-bottom: 20rem;
+	@include flex-center();
+
+	&__container {
+		width: 100%;
+		display: grid;
+		gap: 2em;
+	}
+
+	&__title {
+		font-weight: bold;
+	}
+
+	&__paragraph {
+		max-width: 52rem;
+		line-height: 200%;
+
+		@media screen and (max-width: 800px) {
+			max-width: none;
+		}
+	}
+
+	&__list {
+		margin-top: 5rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 3rem;
+		max-width: 100rem;
+
+		@media screen and (max-width: 800px) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__service {
+		font-size: 3.2rem;
+		font-weight: bold;
+
+		@media screen and (max-width: 1024px) {
+			font-size: 2.6rem;
+		}
+	}
+}
+
+// Footer
+.footer {
+	background-color: transparent;
+	padding-top: 10rem;
+	padding-bottom: 5rem;
+	@include flex-center();
+	color: #fff;
+
+	&__container {
+		display: grid;
+		align-items: center;
+		justify-content: space-between;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 3rem;
+
+		@media screen and (max-width: 800px) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__logo {
+		&-container {
+			margin-left: 5rem;
+
+			@media screen and (max-width: 800px) {
+				display: grid;
+				justify-items: center;
+				margin-left: 0;
+			}
+		}
+	}
+
+	&__content {
+		display: grid;
+		gap: 5rem;
+
+		@media screen and (max-width: 800px) {
+			gap: 3rem;
+		}
+	}
+
+	&__address {
+		font-size: 2.1rem;
+		font-weight: 400;
+		max-width: 35rem;
+		margin-top: 5rem;
+
+		&-container {
+			display: flex;
+			align-items: flex-end;
+			justify-content: space-between;
+
+			@media screen and (max-width: 1024px) {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			@media screen and (max-width: 800px) {
+				flex-direction: row;
+				align-items: flex-end;
+				justify-content: space-between;
+			}
+
+			@media screen and (max-width: 600px) {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+		}
+	}
+
+	&__copyright {
+		font-size: 1.5rem;
+		font-weight: 500;
+
+		@media screen and (max-width: 1024px) {
+			font-size: 1.3rem;
+			margin-top: 3rem;
+		}
+	}
+}
+
+.float {
+	animation: float 3s infinite linear;
+
+	&:nth-child(1) {
+		animation-delay: 0s;
+	}
+
+	&:nth-child(2) {
+		animation-delay: 0.2s;
+	}
+
+	&:nth-child(3) {
+		animation-delay: 0.4s;
+	}
+
+	&:nth-child(4) {
+		animation-delay: 0.6s;
+	}
+}
+
+@keyframes float {
+	0% {
+		transform: translateY(0);
+	}
+
+	25% {
+		transform: translateY(-0.5rem);
+	}
+
+	50% {
+		transform: translateY(0rem);
+	}
+
+	75% {
+		transform: translateY(0.5rem);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}

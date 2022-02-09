@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AOS from "aos";
+import { useEffect } from "react";
+import "aos/dist/aos.css";
+
+// Components
+import Belief from "./components/Belief";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Paper from "./components/Paper";
+import Pillars from "./components/Pillars";
+import Services from "./components/Services";
+import Vision from "./components/Vision";
+
+// Styles
+import "./styles/index.scss";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	useEffect(() => {
+		AOS.init({
+			duration: 800,
+			offset: 200
+		});
+	}, []);
+
+	return (
+		<main className='main'>
+			<div
+				className='bg'
+				data-aos='zoom-out'
+				data-aos-delay={100}
+				data-aos-duration={3000}
+			/>
+			<Navbar />
+			<Header />
+			<Paper>
+				<Vision />
+				<Belief />
+				<Pillars />
+				<Services />
+			</Paper>
+			<Footer />
+		</main>
+	);
 }
 
 export default App;
